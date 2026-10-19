@@ -21,3 +21,7 @@ For 3 study blocks of 25 minutes each:
 
 - Total study time: 75 minutes
 - Recommendation: Plan a break.
+
+
+## Development
+- Created during the Pre-MSc Git and Python laboratory.
