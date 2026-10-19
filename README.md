@@ -1,38 +1,128 @@
-# study-session-planner
-A Python command-line study session planner
-
 # Study Session Planner
 
 ## Purpose
-This project is a Python command-line application
-that calculates total study time and suggests
-when to take a break.
 
-## Planned Inputs
-- Number of study blocks
-- Duration of each block in minutes
+Study Session Planner is a simple Python command-line application.
 
-## Expected Output
-- Total study time in minutes
-- A break reminder if the total is 60 minutes or more
+It calculates the total study time based on the number of study blocks and the duration of each block.
 
-## Example
-For 3 study blocks of 25 minutes each:
+It also suggests whether to plan a break.
 
-- Total study time: 75 minutes
-- Recommendation: Plan a break.
+## Requirements
 
-
-## Development
-- Created during the Pre-MSc Git and Python laboratory.
+- Python 3
+- No external Python packages are required.
 
 ## How to Run
 
-1. Open a terminal in the project directory.
-2. Make sure Python 3 is installed.
-3. Run the following command:
+1. Open a terminal.
+2. Navigate to the project directory.
+3. Run the program using Python 3.
 
-   python3 planner.py --blocks 3 --minutes 25
+Example:
 
-4. The program will calculate the total study time
-   and suggest whether to take a break.
+```bash
+python3 planner.py --blocks 3 --minutes 25
+```
+
+Output:
+
+```text
+Total minutes: 75
+Plan a break.
+```
+
+## Command-Line Arguments
+
+| Argument | Description | Required | Default |
+|---|---|---|---|
+| `--blocks` | Number of study blocks | Yes | None |
+| `--minutes` | Minutes per block | No | 25 |
+| `--help` | Display the help message | No | None |
+
+Both `--blocks` and `--minutes` must be positive integers.
+
+## Examples
+
+### Example 1: Standard study session
+
+```bash
+python3 planner.py --blocks 3 --minutes 25
+```
+
+Output:
+
+```text
+Total minutes: 75
+Plan a break.
+```
+
+### Example 2: Default minutes
+
+```bash
+python3 planner.py --blocks 1
+```
+
+Output:
+
+```text
+Total minutes: 25
+Short study session.
+```
+
+### Example 3: Exactly 60 minutes
+
+```bash
+python3 planner.py --blocks 2 --minutes 30
+```
+
+Output:
+
+```text
+Total minutes: 60
+Plan a break.
+```
+
+## Input Validation
+
+The program rejects zero or negative values.
+
+For example:
+
+```bash
+python3 planner.py --blocks 0
+```
+
+Error:
+
+```text
+planner.py: error: Use positive numbers.
+```
+
+Non-integer inputs are also rejected by argparse.
+
+## Help Menu
+
+To display the help menu:
+
+```bash
+python3 planner.py --help
+```
+
+## How It Works
+
+1. `argparse` reads the command-line arguments.
+2. `total_minutes()` validates the input values.
+3. The function calculates the total study time.
+4. The program displays the total number of minutes.
+5. An `if-else` statement determines the break recommendation.
+
+If the total is 60 minutes or more, the program displays "Plan a break."
+
+Otherwise, it displays "Short study session."
+
+## Development
+
+This project was created during the Pre-MSc Git and Python laboratory.
+
+Git was used for version control, including commits, branches, merging, and pushing changes to GitHub.
