@@ -15,3 +15,9 @@ when to take a break.
 ## Expected Output
 - Total study time in minutes
 - A break reminder if the total is 60 minutes or more
+
+## Example
+For 3 study blocks of 25 minutes each:
+
+- Total study time: 75 minutes
+- Recommendation: Plan a break.
